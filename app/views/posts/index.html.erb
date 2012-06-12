@@ -1,0 +1,68 @@
+
+
+<% if (current_user && current_user.isAdmin?) %>
+    <h1>Hello Admin <%= current_user.email %></h1>
+    <%= link_to "Sign Out", signout_path %>
+    <%= link_to "Manage Users", users_path %>
+<% elsif current_user %>
+    <h1>Hello User <%= current_user.email %></h1>
+    <%= link_to "Sign Out", signout_path %>
+<% else %>
+    <%= link_to "Log In", signin_path %>
+<% end %>
+
+
+<%= form_tag("/posts", :method => "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:searchString) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+<h1>Listing posts</h1>
+
+<table>
+
+
+  <tr>
+    <th>Email</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @postssorted = @posts.sort %>
+  <% @postssorted.each do |post| %>
+      <tr>
+        <td><%= post.email %></td>
+        <td><%= post.body %></td>
+
+        <% if (current_user) %>
+            <td><%= link_to 'Add Comment', post %></td>
+      <% end %>
+       <% if (current_user && current_user.isAdmin?) %>
+         <td><%= link_to 'Edit', edit_post_path(post) %></td>
+         <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+       <% end %>
+
+      </tr>
+      <% post.comments.each do |comment| %>
+          <tr>
+            <td>
+              &nbsp;&nbsp;&nbsp; Commentor=<%= comment.email %>
+            </td>
+            <td>
+              Comment=<%= comment.body %>
+            </td>
+
+
+          </tr>
+      <% end %>
+  <% end %>
+</table>
+
+<br />
+
+<% if current_user %>
+    <%= link_to 'New Post', new_post_path %>
+<% end %>

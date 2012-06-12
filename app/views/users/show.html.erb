@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Created User </b>
+  <%= @user.email %>
+</p>
+
+  <b>Isadmin:</b>
+  <%= @user.isAdmin %>
+</p>
+
+<%= link_to "Log In", signin_path %>
