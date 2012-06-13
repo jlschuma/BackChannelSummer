@@ -1,0 +1,47 @@
+<%
+  top_post_limit = 10
+  top_user_limit = 10
+%>
+
+<h1>Reports</h1>
+<h2>Top <%= top_post_limit %> posts</h2>
+<table>
+<thead>
+  <tr>
+    <th>Post ID</th>
+    <th>Author</th>
+    <th># Comments</th>
+  </tr>
+</thead>
+<tbody>
+  <% 
+    @posts[0..top_post_limit-1].each do |post|
+  %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.user.email %></td>
+      <td><%= post.comments.length %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<h2>Top <%= top_user_limit %> posters</h2>
+<table>
+<thead>
+  <tr>
+    <th>Author</th>
+    <th># Posts</th>
+  </tr>
+</thead>
+<tbody>
+  <% 
+    @users[0..top_post_limit-1].each do |user|
+  %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.posts.length %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
