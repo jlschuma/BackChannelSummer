@@ -15,16 +15,20 @@
 <% 
   active = "/#{controller.controller_name}"
   pages = {
-    posts_path => ['Home', 'tab-home'], 
-    users_path => ['Manage Users', 'tab-users'], 
-    reports_path => ['Reports', 'tab-reports']
+    posts_path => ['Home', 'tab-home',false], 
+    users_path => ['Manage Users', 'tab-users',true], 
+    reports_path => ['Reports', 'tab-reports',true]
   }
-  pages.each do |page| 
-    page_classname = page[1][1]
-    page_classname += " active" if (page[0] == active && controller.action_name == "index")
+  pages.each do |page|
+    if (!page[1][2] || (current_user && current_user.isAdmin?))
+      page_classname = page[1][1]
+      page_classname += " active" if (page[0] == active && controller.action_name == "index")
 %>
   <li class="<%= page_classname %>"><%= link_to page[1][0].html_safe, page[0] %></li>
-<% end %>  
+<%
+    end
+  end 
+%>  
 </ul>
 </div>
 
