@@ -1,11 +1,11 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :email
-  has_many :comments
+  attr_accessible :body
   belongs_to :user
+  has_many :comments
 
   def self.search(search)
    if search
-       find(:all, :conditions => ['body LIKE ? or email LIKE ?', "%#{search}%", "%#{search}%"])
+       find(:all, :conditions => ['body LIKE ? or user.email LIKE ?', "%#{search}%", "%#{search}%"])
   else
     find(:all)
 

@@ -3,13 +3,14 @@ BackChannelSummer::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  
   resources :sessions, only: [:new, :create, :destroy]
 
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
+  match '/reports', to: 'reports#index'
 
   root :to => 'posts#index'
 

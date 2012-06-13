@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20120611152823) do
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.string   "email"
+    t.integer  "user_id"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

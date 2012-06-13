@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Created User </b>
+  <b>User:</b>
   <%= @user.email %>
 </p>
 
@@ -11,6 +9,4 @@
 
 <% if (current_user && current_user.isAdmin?) %>
     <%= link_to "Manage Users", users_path %>
-<% else %>
-  <%= link_to "Log In", signin_path %>
 <% end %>

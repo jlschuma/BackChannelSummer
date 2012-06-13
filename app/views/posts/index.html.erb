@@ -1,17 +1,4 @@
 
-
-<% if (current_user && current_user.isAdmin?) %>
-    <h1>Hello Admin <%= current_user.email %></h1>
-    <%= link_to "Sign Out", signout_path %>
-    <%= link_to "Manage Users", users_path %>
-<% elsif current_user %>
-    <h1>Hello User <%= current_user.email %></h1>
-    <%= link_to "Sign Out", signout_path %>
-<% else %>
-    <%= link_to "Log In", signin_path %>
-<% end %>
-
-
 <%= form_tag("/posts", :method => "get") do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:searchString) %>
@@ -20,47 +7,53 @@
 
 <h1>Listing posts</h1>
 
+<% if current_user %>
+    <ul>
+    <li><%= link_to 'New Post', new_post_path %></li>
+    </ul>
+<% end %>
 <table>
-
-
+<thead>
   <tr>
     <th>Email</th>
     <th>Content</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
-
+</thead>
+<tbody>
   <% @postssorted = @posts.sort %>
+  <% if @postssorted.empty? %>
+    <tr>
+      <td colspan="3">Sorry, there are no posts yet.</td>
+    </tr>
+  <% end %>
   <% @postssorted.each do |post| %>
       <tr>
-        <td><%= post.email %></td>
+        <td><%= post.user.email %></td>
         <td><%= post.body %></td>
-
-        <% if (current_user) %>
-            <td><%= link_to 'Add Comment', post %></td>
-      <% end %>
-       <% if (current_user && current_user.isAdmin?) %>
-         <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-       <% end %>
-
+        <td>
+          <% if (current_user) %>
+            <ul>
+              <li><%= link_to 'Add Comment', post %></li>
+              <% if (current_user.isAdmin?) %>
+              <li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
+              <% end %>
+          <% end %>
+        </td>
       </tr>
       <% post.comments.each do |comment| %>
           <tr>
+            <td><%= comment.email %></td>
+            <td><%= comment.body %></td>
             <td>
-              &nbsp;&nbsp;&nbsp; Commentor=<%= comment.email %>
+            <% if (current_user && current_user.isAdmin?) %>
+              <ul>
+                <li><%= link_to 'Destroy', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
+              </ul>
+            <% end %>
             </td>
-            <td>
-              Comment=<%= comment.body %>
-            </td>
-            <td><%= link_to 'Destroy', [post, comment], confirm: 'Are you sure?', method: :delete %></td>
           </tr>
       <% end %>
   <% end %>
+</tbody>
 </table>
-
-<br />
-
-<% if current_user %>
-    <%= link_to 'New Post', new_post_path %>
-<% end %>

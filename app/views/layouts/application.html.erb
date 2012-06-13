@@ -7,11 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+<div class="wrap">
+
+<ul>
+<% 
+  active = "/#{controller.controller_name}"
+  pages = {posts_path => 'Home', users_path => 'Manage Users', reports_path => 'Reports'}
+  pages.each do |page| 
+    page_classname = page[0] == active ? "active" : ""
+%>
+  <li class="<%= page_classname %>"><%= link_to page[1], page[0] %></li>
+<% end %>  
+</ul>
+
+<ul>
+<% if (current_user) %>
+  <% classname = 'admin' if current_user.isAdmin? %>
+  <li class="<% classname %>">Hello <%= current_user.email %></li>
+  <li><%= link_to "Sign Out", signout_path %></li>
+<% else %>
+  <li><%= link_to "Log In", signin_path %></li>
+  <li><%= link_to "Sign Up", signup_path %></li>
 <% end %>
+</ul>
+
+<p id="notice"><%= notice %></p>
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>
