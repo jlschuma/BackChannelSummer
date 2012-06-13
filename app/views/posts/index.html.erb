@@ -54,8 +54,7 @@
             <td>
               Comment=<%= comment.body %>
             </td>
-
-
+            <td><%= link_to 'Destroy', [post, comment], confirm: 'Are you sure?', method: :delete %></td>
           </tr>
       <% end %>
   <% end %>

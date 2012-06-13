@@ -71,7 +71,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to post_path }
+      format.html { redirect_to posts_path }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :email
   has_many :comments
+  belongs_to :user
 
   def self.search(search)
    if search

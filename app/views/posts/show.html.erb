@@ -10,18 +10,23 @@
   <%= @post.body %>
 </p>
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-    <p>
-      <b>Commenter:</b>
-      <%= comment.email %>
-    </p>
 
-    <p>
-      <b>Comment:</b>
+<h2>Comments</h2>
+<table>
+<% @post.comments.each do |comment| %>
+    <tr>
+    <td>
+      Commenter:
+      <%= comment.email %>
+    </td>
+
+    <td>
+        Comment:
       <%= comment.body %>
-    </p>
+    </td>
+    </tr>
 <% end %>
+</table>
 
 <h2>Add a comment:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>

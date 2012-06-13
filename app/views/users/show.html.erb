@@ -9,4 +9,8 @@
   <%= @user.isAdmin %>
 </p>
 
-<%= link_to "Log In", signin_path %>
+<% if (current_user && current_user.isAdmin?) %>
+    <%= link_to "Manage Users", users_path %>
+<% else %>
+  <%= link_to "Log In", signin_path %>
+<% end %>
