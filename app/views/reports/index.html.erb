@@ -11,6 +11,7 @@
 <thead>
   <tr>
     <th>Post ID</th>
+    <th>Post Time</th>
     <th>Author</th>
     <th># Comments</th>
   </tr>
@@ -21,6 +22,7 @@
   %>
     <tr>
       <td><%= post.id %></td>
+      <td><%= post.created_at.strftime "%B %d, %Y %l:%M %p" %></td>
       <td><%= post.user.email %></td>
       <td><%= post.comments.length %></td>
     </tr>
@@ -33,6 +35,7 @@
 <thead>
   <tr>
     <th>Author</th>
+    <th>Joined</th>
     <th># Posts</th>
   </tr>
 </thead>
@@ -42,6 +45,7 @@
   %>
     <tr>
       <td><%= user.email %></td>
+      <td><%= user.created_at.strftime "%B %d, %Y" %></td>
       <td><%= user.posts.length %></td>
     </tr>
   <% end %>

@@ -15,6 +15,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="branding"></div>
+
 <div class="content-wrap">
 
 <div class="header">
@@ -45,10 +48,10 @@
 <% if (current_user) %>
   <% classname = 'admin' if current_user.isAdmin? %>
   <li class="<% classname %>">Hello <%= current_user.email %></li>
-  <li class="button dark"><%= link_to "Sign Out", signout_path %></li>
+  <li class="button dark"><%= link_to "Log Out", signout_path %></li>
 <% else %>
   <li class="button dark"><%= link_to "Log In", signin_path %></li>
-  <li class="button dark"><%= link_to "Sign Up", signup_path %></li>
+  <li class="button dark"><%= link_to "Register", signup_path %></li>
 <% end %>
 </ul>
 </div>

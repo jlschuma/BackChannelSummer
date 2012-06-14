@@ -88,6 +88,29 @@ p, ol, ul, td,
 input {
   font-size: 1.0em;
 }
+input, textarea {
+  background-color: #FEFEFE;
+  border: 1px solid #EEE;
+  border-radius: 3px;
+  color: #888;
+  padding: 4px 6px;
+  transition: box-shadow 1s, border 1s;
+  -moz-transition: box-shadow 1s, border 1s;
+ -webkit-transition: box-shadow 1s, border 1s;
+ -o-transition: box-shadow 1s, border 1s;
+}
+input:hover, input:focus,
+textarea:hover, textarea:focus {
+  background-color: #FFF;
+  color: #000;
+}
+input:hover, textarea:hover {
+  border: 1px solid #CDF4EE;
+}
+input:focus, textarea:focus {
+  border: 1px solid #90F6E5;
+  box-shadow: 0px 0px 2px 2px rgba(205,244,238,0.3);
+}
 label {
   display: inline-block;
   width: 220px;
@@ -109,6 +132,15 @@ thead {
   background-color: #6E6B59;
   color: #FFF;
 }
+.branding {
+  background: url("/images/backchannel-vert.png") no-repeat scroll 0 0 transparent;
+  height: 575px;
+  overflow: hidden;
+  position: absolute;
+  width: 170px;
+  z-index: -1;
+}
+
 .content-wrap {
   background-color: #FDFDFD;
   border-radius: 12px;
@@ -197,18 +229,18 @@ input.button,
   color: #000;
 }
 .button:hover {
-  background-color: #F9542F;
+  background-color: #7D60FF;
   border: 1px solid rgba(0,0,0,0.2);
 }
 input.button:hover,
 .button:hover a {
   color: #FFF;
-  background-image: -ms-linear-gradient(top, #F78A71 0%, #F9542F 100%);
-  background-image: -moz-linear-gradient(top, #F78A71 0%, #F9542F 100%);
-  background-image: -o-linear-gradient(top, #F78A71 0%, #F9542F 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F78A71), color-stop(1, #F9542F));
-  background-image: -webkit-linear-gradient(top, #F78A71 0%, #F9542F 100%);
-  background-image: linear-gradient(to bottom, #F78A71 0%, #F9542F 100%);  border-radius: 4px;
+  background-image: -ms-linear-gradient(top, #7D60FF 0%, #604BC6 100%);
+  background-image: -moz-linear-gradient(top, #7D60FF 0%, #604BC6 100%);
+  background-image: -o-linear-gradient(top, #7D60FF 0%, #604BC6 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7D60FF), color-stop(1, #604BC6));
+  background-image: -webkit-linear-gradient(top, #7D60FF 0%, #604BC6 100%);
+  background-image: linear-gradient(to bottom, #7D60FF 0%, #604BC6 100%);  border-radius: 4px;
 }
 li.button.dark {
   background-color: rgba(255,255,255,0.1);
