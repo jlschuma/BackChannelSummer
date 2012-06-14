@@ -88,6 +88,14 @@ p, ol, ul, td,
 input {
   font-size: 1.0em;
 }
+a, a:visited {
+  color: #E52D00;
+  text-decoration: none;
+}
+a:hover {
+  color: #FF4314;
+  text-decoration: underline;
+}
 input, textarea {
   background-color: #FEFEFE;
   border: 1px solid #EEE;
