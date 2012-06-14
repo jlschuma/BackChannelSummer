@@ -1,12 +1,16 @@
 <% provide(:title, 'Users') %>
 
+<% if !current_user.nil? && current_user.isAdmin then %>
 <ul class="actions"><li class="button"><%= link_to "Create New User", signup_path %></li></ul>
+<% end %>
 
 <table>
 <thead>
   <tr>
     <th>Email</th>
-    <th>Password</th>
+    <% if !current_user.nil? && current_user.isAdmin then %>
+      <th>Password</th>
+    <% end %>
     <th>Administrator</th>
     <th></th>
   </tr>
@@ -14,15 +18,19 @@
 <tbody>
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.email %></td>
-    <td><%= user.password %></td>
+    <td><%= link_to user.email, user %></td>
+    <% if !current_user.nil? && current_user.isAdmin then %>
+      <td><%= user.password %></td>
+    <% end %>
     <td><%= user.isAdmin %></td>
-    <td>
-      <ul class="actions">
-        <li class="button"><%= link_to 'Edit', edit_user_path(user) %></li>
-        <li class="button"><%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %></li>
-      </ul>
-    </td>
+    <% if !current_user.nil? && current_user.isAdmin then %>
+      <td>
+        <ul class="actions">
+          <li class="button"><%= link_to 'Edit', edit_user_path(user) %></li>
+          <li class="button"><%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %></li>
+        </ul>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </tbody>
