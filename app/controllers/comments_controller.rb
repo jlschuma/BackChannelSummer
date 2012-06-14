@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     params[:comment][:email] =  current_user.email
     @comment = @post.comments.create(params[:comment])
-    redirect_to posts_path
+    redirect_to posts_path, notice: 'Thank you for your comment!'
   end
 
   # PUT /comments/1
@@ -71,7 +71,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_path }
+      format.html { redirect_to posts_path, notice: 'Comment was deleted' }
       format.json { head :no_content }
     end
   end

@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully saved.' }
+        format.html { redirect_to posts_url, notice: 'You said it alright!' }
         format.json { head :no_content }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_url, notice: 'Post was deleted' }
       format.json { head :no_content }
     end
   end
