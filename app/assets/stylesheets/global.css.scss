@@ -172,39 +172,61 @@ ul.actions li {
 .header a,
 .actions a {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 14px 20px;
   text-decoration: none;
 }
 .header a {
   color: #FFF;
 }
+.tab-menu {
+  float: left;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
 .tab-menu a {
-  border-radius: 12px 12px 0 0;
+  background-repeat: no-repeat;
+  border-radius: 2px;
   font-size: 1.2em;
+  padding-left: 46px;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 }
 .tab-menu a:hover {
   background-color: #BDB89F;
 }
 .tab-menu .active a {
-  background-color: #FDFDFD;
+  background-color: #EFF9F7;
   color: #000;
   text-shadow: none;
 }
 .tab-menu .active a:hover {
   background-color: #FDFDFD;
 }
+.tab-home a {
+  background-image: url("/images/home.png");
+}
+.tab-home.active a {
+  background-position: 0 -50px;
+}
+.tab-users a {
+  background-image: url("/images/users.png");
+}
+.tab-users.active a {
+  background-position: 0 -50px;
+}
+.tab-reports a {
+  background-image: url("/images/reports.png");
+}
+.tab-reports.active a {
+  background-position: 0 -50px;
+}
 .content {
   padding: 20px;
   padding-top: 10px;
 }
-.tab-menu {
-  float: left;
-  padding-left: 10px;
-}
 .user-login {
   float: right;
   padding-right: 10px;
+  margin-top: 8px;
 }
 .button {
   border-radius: 4px;
@@ -265,6 +287,9 @@ li.button.dark:hover a {
   border-radius: 4px;
 }
 
+.post-index .posts {
+  margin: 20px 0;
+}
 .post-index h1 {
   display: inline-block;
   margin: 0 0 0.2em 0
@@ -284,6 +309,111 @@ li.button.dark:hover a {
 }
 .post-index #search:hover {
   background-position: 0 -40px;
+}
+.post-index .post {
+  margin: 10px 0;
+  overflow: hidden;
+  padding: 10px;
+}
+.post-index .post.odd {
+  border-left: 5px solid #FB643F;
+  border-right: 5px solid #FB643F;
+}
+.post-index .post.even {
+  border-left: 5px solid #00EFC3;
+  border-right: 5px solid #00EFC3;
+}
+.post-index .post-stem {
+  background: url("/images/post-stem-up-left.png") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 40px;
+  margin: 0 10px 0 30px;
+  width: 40px;
+}
+.post-index .post-head {
+  float: left;
+  padding-top: 10px;
+}
+.post-index .post-actions {
+  float: right;
+}
+.post-index .comment-actions {
+  float: left;
+  margin: 10px;
+}
+.post-index .post-body-wrap {
+  margin-right: 200px;
+  overflow: hidden;
+}
+.post-index .post-body {
+  background-color: #DAEFEB;
+  border-bottom: 1px solid #BBCCCC;
+  border-radius: 8px 8px 8px 8px;
+  color: #6E6B59;
+  font-size: 1.2em;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 20px;
+}
+.post-index .post-author {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.post-index .post-time {
+  color: #604BC6;
+  font-weight: bold;
+}
+.post-index .comment {
+  clear: both;
+}
+.post-index .comment.first {
+  clear: none;
+}
+.post-index .comment-body-wrap .actions {
+  float: right;
+  font-size: 0.85em;
+  margin: 4px 2px;
+}
+.post-index .comment-body-wrap .actions .button a {
+  padding: 4px 8px;
+}
+.post-index .comment-body-wrap {
+  background-color: #FDFFB2;
+  border-bottom: 1px solid #E5E544;
+  border-radius: 8px 8px 8px 8px;
+  color: #6E6B59;
+  float: right;
+  margin-top: 10px;
+  min-width: 500px;
+  overflow: hidden;
+}
+.post-index .comment-body {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 20px; 
+}
+.post-index .comment-stem {
+  background: url("/images/comment-stem-dn-right.png") no-repeat scroll 0 0 transparent;
+  float: right;
+  height: 30px;
+  margin: 0 30px 0 10px;
+  position: relative;
+  top: -1px;
+  width: 30px;
+}
+.post-index .comment-footer {
+  float: right;
+  margin-top: 4px;
+}
+.post-index .comment-author {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.post-index .comment-time {
+  color: #666;
+  font-size: 0.7em;
+  margin-left: 10px;
 }
 .post-new label,
 .post-edit label,

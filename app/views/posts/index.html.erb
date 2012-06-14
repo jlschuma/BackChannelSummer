@@ -14,50 +14,72 @@
     <% end %>
   </div>
 <% end %>
-<table>
-<thead>
-  <tr>
-    <th>Email</th>
-    <th>Content</th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
-  <% @postssorted = @posts.sort %>
-  <% if @postssorted.empty? %>
-    <tr>
-      <td colspan="3">Sorry, there are no posts yet.</td>
-    </tr>
-  <% end %>
-  <% @postssorted.each do |post| %>
-      <tr>
-        <td><%= post.user.email %></td>
-        <td><%= post.body %></td>
-        <td>
-          <% if (current_user) %>
-            <ul class="actions">
-              <li class="button"><%= link_to 'Add Comment', post %></li>
-              <% if (current_user.isAdmin?) %>
-              <li class="button"><%= link_to 'Delete', post, confirm: 'Are you sure?', method: :delete %></li>
-              <% end %>
-          <% end %>
-        </td>
-      </tr>
-      <% post.comments.each do |comment| %>
-          <tr>
-            <td><%= comment.email %></td>
-            <td><%= comment.body %></td>
-            <td>
+
+<div class = "posts">
+
+<% @postssorted = @posts.sort %>
+<% if @postssorted.empty? %>
+  <div class="post empty">Sorry, there are no posts yet.</div>
+<% end %>
+<% 
+  @postssorted.each_with_index do |post,index| 
+  rowclass = (index % 2) == 0 ? 'odd' : 'even'
+  rowclass += ' post';
+  post_text = post.body
+  if post_text.length == 0 then post_text = "Not much to say..." end
+%>
+  <div class="<%= rowclass %>">
+    <div class="post-body-wrap">
+      <div class="post-stem"></div>
+      <div class="post-head">
+        <span class="post-author"><%= post.user.email %></span> started a conversation on <span class="post-time"><%= post.created_at.strftime "%B %d, %Y %l:%M %p" %></span>
+      </div>
+      <div class="post-actions">
+        <% if (current_user) %>
+          <ul class="actions">
+            <% if (current_user.isAdmin?) %>
+            <li class="button"><%= link_to 'Delete', post, confirm: 'Are you sure?', method: :delete %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <div style="clear:both"></div>
+      <div class="post-body"><%= post_text %></div>
+    </div>
+    <div class="comment-actions">
+      <% if (current_user) %>
+        <ul class="actions">
+          <li class="button"><%= link_to 'Add Comment', post %></li>
+        </ul>
+      <% end %>
+    </div>
+    <% 
+      #comments = post.comments.sort_by { |comment| comment.created_at }
+      comments = post.comments.sort{|a,b| b[:created_at] <=> a[:created_at]} 
+      comments.each_with_index do |comment,index|
+      rowclass = (index % 2) == 0 ? 'odd' : 'even'
+      if (index == 0) then rowclass += ' first' end
+      rowclass += ' comment'
+    %>
+        <div class="<%= rowclass %>">
+          <div class="comment-body-wrap">
             <% if (current_user && current_user.isAdmin?) %>
               <ul class="actions">
                 <li class="button"><%= link_to 'Delete', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
               </ul>
             <% end %>
-            </td>
-          </tr>
-      <% end %>
-  <% end %>
-</tbody>
-</table>
+            <div class="comment-body"><%= comment.body %></div>
+          </div>
+          <div style="clear:both"></div>
+          <div class="comment-stem"></div>
+          <div class="comment-footer">
+            <span class="comment-author"><%= comment.email %></span>
+            <span class="comment-time"><%= time_ago_in_words(comment.created_at) %> ago</span></div>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+
+</div>
 
 </div>
