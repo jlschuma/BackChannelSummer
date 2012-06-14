@@ -1,8 +1,16 @@
 <% provide(:title, 'Say something!') %>
 
+<script type="text/javascript">
+  $(window).ready(function() {
+    $("#post_body").focus();
+  });
+</script>
+
 <div class="post-new">
 
-<h1>Say something!</h1>
+<div class="post-stem"></div> 
+<h1><%= current_user.email %>, say something!</h1>
+<div style="clear:both"></div>
 
 <%= render 'form' %>
 

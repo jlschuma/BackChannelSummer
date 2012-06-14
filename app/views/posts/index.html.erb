@@ -44,6 +44,10 @@
       <div style="clear:both"></div>
       <div class="post-body"><%= post.post_text %></div>
     </div>
+    <div class="post-comment-count-wrap">
+      <div class="post-comment-count"><%= post.comments.length %></div>
+      <div class="post-comment-count-label"><%= post.comments.length == 1 ? 'comment' : 'comments' %></div>
+    </div>
     <div class="comment-actions">
       <% if (current_user) %>
         <ul class="actions">
@@ -52,7 +56,6 @@
       <% end %>
     </div>
     <% 
-      #comments = post.comments.sort_by { |comment| comment.created_at }
       comments = post.comments.sort{|a,b| b[:created_at] <=> a[:created_at]} 
       comments.each_with_index do |comment,index|
       rowclass = (index % 2) == 0 ? 'odd' : 'even'

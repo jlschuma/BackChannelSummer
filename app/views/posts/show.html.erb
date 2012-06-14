@@ -1,28 +1,41 @@
 <div class="post-show">
 
-<p>
-  <b>Email:</b>
-  <%= @post.user.email %>
-</p>
+<script type="text/javascript">
+  $(window).ready(function() {
+    $("#comment_body").focus();
+  });
+</script>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
+<div class="post-body-wrap">
+  <div class="post-stem"></div>
+  <div class="post-head">
+    <span class="post-author"><%= @post.user.email %></span> started a conversation on <span class="post-time"><%= @post.post_created %></span>
+  </div>
+  <div style="clear:both"></div>
+  <div class="post-body"><%= @post.post_text %></div>
+</div>
+<div class="post-comment-count-wrap">
+  <div class="post-comment-count"><%= @post.comments.length %></div>
+  <div class="post-comment-count-label"><%= @post.comments.length == 1 ? 'comment' : 'comments' %></div>
+</div>
 
-
-<h2><%= @post.comments.length %> comments</h2>
-
-<h2>Add a comment:</h2>
+<div style="clear:both"></div>
+<h2><%= current_user.email %>'s reply:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
+  <div class="comment-body-wrap">
     <div class="field">
       <%= f.label :body %>
       <%= f.text_area :body %>
     </div>
-    <%= f.submit 'Ok', :class => 'button', :style => 'float:left' %>
-    <ul class="actions">
-      <li class="button"><%= link_to 'Cancel', posts_path %></li>
-    </ul>
+  </div>
+  <div style="clear:both"></div>
+  <div class="comment-stem"></div>
+  <div style="clear:both"></div>
+
+  <%= f.submit 'Ok', :class => 'button', :style => 'float:left' %>
+  <ul class="actions">
+    <li class="button"><%= link_to 'Cancel', posts_path %></li>
+  </ul>
 <% end %>
 
 </div>

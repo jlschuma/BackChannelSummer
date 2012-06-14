@@ -241,6 +241,9 @@ input.button,
     padding: 4px 14px;
   }
 } 
+*:focus {
+  outline: none;
+}
 
 .button {
   background-color: rgba(0,0,0,0.05);
@@ -323,29 +326,32 @@ li.button.dark:hover a {
   border-left: 5px solid #00EFC3;
   border-right: 5px solid #00EFC3;
 }
-.post-index .post-stem {
+.post-stem {
   background: url("/images/post-stem-up-left.png") no-repeat scroll 0 0 transparent;
   float: left;
   height: 40px;
   margin: 0 10px 0 30px;
   width: 40px;
 }
-.post-index .post-head {
+.post-head {
   float: left;
   padding-top: 10px;
 }
-.post-index .post-actions {
+.post-actions {
   float: right;
 }
 .post-index .comment-actions {
+  clear: both;
   float: left;
   margin: 10px;
 }
-.post-index .post-body-wrap {
-  margin-right: 200px;
+.post-body-wrap {
+  float: left;
   overflow: hidden;
+  width: 720px;
 }
-.post-index .post-body {
+.post-body,
+.post-new #post_body {
   background-color: #DAEFEB;
   border-bottom: 1px solid #BBCCCC;
   border-radius: 8px 8px 8px 8px;
@@ -355,13 +361,22 @@ li.button.dark:hover a {
   overflow: hidden;
   padding: 20px;
 }
-.post-index .post-author {
+.post-author {
   font-size: 1.4em;
   font-weight: bold;
 }
-.post-index .post-time {
+.post-time {
   color: #604BC6;
   font-weight: bold;
+}
+.post-comment-count-wrap {
+  color: #DDD;
+  float: right;
+  font-size: 1.7em;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin: 35px 20px 0 0;
+  text-align: center;
 }
 .post-index .comment {
   clear: both;
@@ -377,7 +392,8 @@ li.button.dark:hover a {
 .post-index .comment-body-wrap .actions .button a {
   padding: 4px 8px;
 }
-.post-index .comment-body-wrap {
+.comment-body-wrap,
+.post-show #comment_body {
   background-color: #FDFFB2;
   border-bottom: 1px solid #E5E544;
   border-radius: 8px 8px 8px 8px;
@@ -387,12 +403,13 @@ li.button.dark:hover a {
   min-width: 500px;
   overflow: hidden;
 }
-.post-index .comment-body {
+.comment-body,
+.post-show #comment_body {
   font-size: 1.1em;
   font-weight: bold;
   padding: 20px; 
 }
-.post-index .comment-stem {
+.comment-stem {
   background: url("/images/comment-stem-dn-right.png") no-repeat scroll 0 0 transparent;
   float: right;
   height: 30px;
@@ -421,9 +438,26 @@ li.button.dark:hover a {
   display: none;
 }
 .post-new #post_body,
-.post-edit #post_body,
-.post-show #comment_body {
+.post-edit #post_body {
   height: 100px;
+}
+.post-new #post_body,
+.post-new #post_body:focus {
+  border: none;
+  border-bottom: 1px solid #BBCCCC;
+  margin: 0;
+}
+.post-show h2 {
+  margin: 20px 0 0 130px;
+  color: #666;
+}
+.post-show #comment_body {
+  height: 60px;
+  width: 760px;
+  margin: 0;
+}
+.post-show #comment_body {
+  border-width: 0;
 }
 .reports-index table {
   width: 100%;
