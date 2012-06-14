@@ -5,7 +5,10 @@ class Post < ActiveRecord::Base
 
   def self.search(search)
    if search
-       find(:all, :conditions => ['body LIKE ? or user.email LIKE ?', "%#{search}%", "%#{search}%"])
+       # TODO: I broke this when removing email from search model. 
+       # We need to add email back to model or do a join here (or both).
+       #find(:all, :conditions => ['body LIKE ? or user.email LIKE ?', "%#{search}%", "%#{search}%"])
+       find(:all, :conditions => ['body LIKE ?', "%#{search}%"])
   else
     find(:all)
 
