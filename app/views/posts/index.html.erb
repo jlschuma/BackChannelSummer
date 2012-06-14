@@ -25,14 +25,12 @@
   @postssorted.each_with_index do |post,index| 
   rowclass = (index % 2) == 0 ? 'odd' : 'even'
   rowclass += ' post';
-  post_text = post.body
-  if post_text.length == 0 then post_text = "Not much to say..." end
 %>
   <div class="<%= rowclass %>">
     <div class="post-body-wrap">
       <div class="post-stem"></div>
       <div class="post-head">
-        <span class="post-author"><%= post.user.email %></span> started a conversation on <span class="post-time"><%= post.created_at.strftime "%B %d, %Y %l:%M %p" %></span>
+        <span class="post-author"><%= post.user.email %></span> started a conversation on <span class="post-time"><%= post.post_created %></span>
       </div>
       <div class="post-actions">
         <% if (current_user) %>
@@ -44,7 +42,7 @@
         <% end %>
       </div>
       <div style="clear:both"></div>
-      <div class="post-body"><%= post_text %></div>
+      <div class="post-body"><%= post.post_text %></div>
     </div>
     <div class="comment-actions">
       <% if (current_user) %>
@@ -68,7 +66,7 @@
                 <li class="button"><%= link_to 'Delete', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
               </ul>
             <% end %>
-            <div class="comment-body"><%= comment.body %></div>
+            <div class="comment-body"><%= comment.comment_text %></div>
           </div>
           <div style="clear:both"></div>
           <div class="comment-stem"></div>
