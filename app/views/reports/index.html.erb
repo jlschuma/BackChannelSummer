@@ -21,9 +21,9 @@
     @posts[0..top_post_limit-1].each do |post|
   %>
     <tr>
-      <td><%= post.id %></td>
+      <td><%= link_to post.id, post %></td>
       <td><%= post.created_at.strftime "%B %d, %Y %l:%M %p" %></td>
-      <td><%= post.user.email %></td>
+      <td><%= link_to post.user.email, post.user %></td>
       <td><%= post.comments.length %></td>
     </tr>
   <% end %>
@@ -44,7 +44,7 @@
     @users[0..top_post_limit-1].each do |user|
   %>
     <tr>
-      <td><%= user.email %></td>
+      <td><%= link_to user.email, user %></td>
       <td><%= user.created_at.strftime "%B %d, %Y" %></td>
       <td><%= user.posts.length %></td>
     </tr>
