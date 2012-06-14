@@ -23,7 +23,7 @@
     <tr>
       <td><%= link_to post.id, post %></td>
       <td><%= post.created_at.strftime "%B %d, %Y %l:%M %p" %></td>
-      <td><%= link_to post.user.email, post.user %></td>
+      <td><%= link_to post.email, post.user %></td>
       <td><%= post.comments.length %></td>
     </tr>
   <% end %>
