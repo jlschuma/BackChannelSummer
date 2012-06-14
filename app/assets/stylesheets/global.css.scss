@@ -257,6 +257,19 @@ input.button,
   background-color: #7D60FF;
   border: 1px solid rgba(0,0,0,0.2);
 }
+#notice {
+  background-color: #B2FFB7;
+  border: 1px solid #5FCE64;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  color: #25A827;
+  left: 25%;
+  min-width: 300px;
+  padding: 20px;
+  position: absolute;
+  top: 26px;
+  width: 30%;
+}
 input.button:hover,
 .button:hover a {
   color: #FFF;
