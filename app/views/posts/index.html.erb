@@ -59,7 +59,7 @@
       comments = post.comments.sort{|a,b| b[:created_at] <=> a[:created_at]} 
       comments.each_with_index do |comment,index|
       rowclass = (index % 2) == 0 ? 'odd' : 'even'
-      if (index == 0) then rowclass += ' first' end
+      rowclass += ' first' if (index == 0)
       rowclass += ' comment'
     %>
         <div class="<%= rowclass %>">
