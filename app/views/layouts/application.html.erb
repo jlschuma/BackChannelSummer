@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BackChannelSummer</title>
+  <%
+    subtitle = h yield(:title)
+    subtitle = ' &bull; ' + subtitle if subtitle.length > 0
+  %>
+  <title>Back Channel<%=subtitle.html_safe %></title>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie-only.css" />
+  <![endif]-->
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,7 +25,7 @@
   pages = {
     posts_path => ['Home', 'tab-home',false], 
     users_path => ['Manage Users', 'tab-users',true], 
-    reports_path => ['Reports', 'tab-reports',true]
+    reports_path => ['Administrator Reports', 'tab-reports',true]
   }
   pages.each do |page|
     if (!page[1][2] || (current_user && current_user.isAdmin?))
@@ -33,14 +41,14 @@
 </div>
 
 <div class="user-login">
-<ul>
+<ul class="actions">
 <% if (current_user) %>
   <% classname = 'admin' if current_user.isAdmin? %>
   <li class="<% classname %>">Hello <%= current_user.email %></li>
-  <li><%= link_to "Sign Out", signout_path %></li>
+  <li class="button dark"><%= link_to "Sign Out", signout_path %></li>
 <% else %>
-  <li><%= link_to "Log In", signin_path %></li>
-  <li><%= link_to "Sign Up", signup_path %></li>
+  <li class="button dark"><%= link_to "Log In", signin_path %></li>
+  <li class="button dark"><%= link_to "Sign Up", signup_path %></li>
 <% end %>
 </ul>
 </div>

@@ -1,16 +1,18 @@
+<% provide(:title, 'Posts') %>
+<div class="post-index">
 
-<%= form_tag("/posts", :method => "get") do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:searchString) %>
-    <%= submit_tag("Search") %>
-<% end %>
-
-<h1>Listing posts</h1>
+<h1>What are people talking about?</h1>
 
 <% if current_user %>
-    <ul>
-    <li><%= link_to 'New Post', new_post_path %></li>
+  <div class="right-actions">
+    <ul class="actions">
+      <li class="button"><%= link_to 'Say Something!', new_post_path %></li>
     </ul>
+    <%= form_tag("/posts", :method => "get") do %>
+        <%= text_field_tag :searchString %>
+        <%= submit_tag '&nbsp;'.html_safe, :class => 'button', :id => 'search', :placeholder => 'Search' %>
+    <% end %>
+  </div>
 <% end %>
 <table>
 <thead>
@@ -33,10 +35,10 @@
         <td><%= post.body %></td>
         <td>
           <% if (current_user) %>
-            <ul>
-              <li><%= link_to 'Add Comment', post %></li>
+            <ul class="actions">
+              <li class="button"><%= link_to 'Add Comment', post %></li>
               <% if (current_user.isAdmin?) %>
-              <li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
+              <li class="button"><%= link_to 'Delete', post, confirm: 'Are you sure?', method: :delete %></li>
               <% end %>
           <% end %>
         </td>
@@ -57,3 +59,5 @@
   <% end %>
 </tbody>
 </table>
+
+</div>

@@ -1,9 +1,11 @@
+<% provide(:title, 'Administrator Reports') %>
 <%
   top_post_limit = 10
   top_user_limit = 10
 %>
 
-<h1>Reports</h1>
+<div class="reports-index">
+
 <h2>Top <%= top_post_limit %> posts</h2>
 <table>
 <thead>
@@ -45,3 +47,5 @@
   <% end %>
 </tbody>
 </table>
+
+</div>

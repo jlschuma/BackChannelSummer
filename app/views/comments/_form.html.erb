@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Ok', :class => 'button', :style => 'float:left' %>
+  <ul class="actions">
+    <li class="button"><%= link_to 'Cancel', comments_path %></li>
+  </ul>
 <% end %>

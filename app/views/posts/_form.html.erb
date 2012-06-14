@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Ok', :class => 'button', :style => 'float:left' %>
+  <ul class="actions">
+    <li class="button"><%= link_to 'Cancel', posts_path %></li>
+  </ul>
 <% end %>

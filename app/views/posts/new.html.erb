@@ -1,5 +1,9 @@
-<h1>New post</h1>
+<% provide(:title, 'Say something!') %>
+
+<div class="post-new">
+
+<h1>Say something!</h1>
 
 <%= render 'form' %>
 
-<ul><li><%= link_to 'Cancel', posts_path %></li></ul>
+</div>

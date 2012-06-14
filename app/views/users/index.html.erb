@@ -1,6 +1,6 @@
-<h1>Listing users</h1>
+<% provide(:title, 'Users') %>
 
-<ul><li><%= link_to "Create New User", signup_path %></li></ul>
+<ul class="actions"><li class="button"><%= link_to "Create New User", signup_path %></li></ul>
 
 <table>
 <thead>
@@ -18,9 +18,9 @@
     <td><%= user.password %></td>
     <td><%= user.isAdmin %></td>
     <td>
-      <ul>
-        <li><%= link_to 'Edit', edit_user_path(user) %></li>
-        <li><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></li>
+      <ul class="actions">
+        <li class="button"><%= link_to 'Edit', edit_user_path(user) %></li>
+        <li class="button"><%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %></li>
       </ul>
     </td>
   </tr>
