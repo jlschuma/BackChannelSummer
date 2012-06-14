@@ -1,12 +1,14 @@
-<p>
-  <b>User:</b>
-  <%= @user.email %>
-</p>
+<div class="field">
+  <label>Email:</label>
+  <span class="field-value"><%= @user.email %></span>
+</div>
 
-  <b>Isadmin:</b>
-  <%= @user.isAdmin %>
-</p>
+<div class="field">
+  <label>Administrator:</label>
+  <span class="field-value"><%= @user.isAdmin %></span>
+</div>
 
-<% if (current_user && current_user.isAdmin?) %>
-    <%= link_to "Manage Users", users_path %>
-<% end %>
+<div class="field">
+  <label>Total posts:</label>
+  <span class="field-value"><%= @user.posts.length %></span>
+</div>
