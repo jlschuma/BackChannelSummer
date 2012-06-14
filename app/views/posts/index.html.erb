@@ -49,8 +49,8 @@
             <td><%= comment.body %></td>
             <td>
             <% if (current_user && current_user.isAdmin?) %>
-              <ul>
-                <li><%= link_to 'Destroy', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
+              <ul class="actions">
+                <li class="button"><%= link_to 'Delete', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
               </ul>
             <% end %>
             </td>
