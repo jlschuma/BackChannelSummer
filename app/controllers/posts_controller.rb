@@ -45,6 +45,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
+    @post.email = current_user.email
 
     respond_to do |format|
       if @post.save
