@@ -76,7 +76,7 @@ body {
 }
 body,
 p, ol, ul, td,
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   font-family: 'PT Sans', sans-serif;
   line-height: 1.2em;
 }
@@ -96,7 +96,7 @@ a:hover {
   color: #FF4314;
   text-decoration: underline;
 }
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   background-color: #FEFEFE;
   border: 1px solid #EEE;
   border-radius: 3px;
@@ -108,14 +108,15 @@ input[type="text"], textarea {
  -o-transition: box-shadow 1s, border 1s;
 }
 input[type="text"]:hover, input[type="text"]:focus,
+input[type="password"]:hover, input[type="password"]:focus
 textarea:hover, textarea:focus {
   background-color: #FFF;
   color: #000;
 }
-input[type="text"]:hover, textarea:hover {
+input[type="text"]:hover, input[type="password"]:hover, textarea:hover {
   border: 1px solid #CDF4EE;
 }
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
   border: 1px solid #90F6E5;
   box-shadow: 0px 0px 2px 2px rgba(205,244,238,0.3);
 }
@@ -270,18 +271,34 @@ input[type="submit"] {
   background-color: #7D60FF;
   border: 1px solid rgba(0,0,0,0.2);
 }
+#notice, .warn {
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+  padding: 20px;
+}
 #notice {
   background-color: #B2FFB7;
   border: 1px solid #5FCE64;
-  border-radius: 4px 4px 4px 4px;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
   color: #25A827;
   left: 25%;
-  min-width: 300px;
-  padding: 20px;
   position: absolute;
   top: 26px;
   width: 30%;
+}
+.warn {
+  background-color: #FFB4B2;
+  border: 1px solid #CE605F;
+  color: #CF1517;
+}
+.user-new .warn, .user-edit .warn {
+  float:right;
+  padding: 10px;
+  width: 360px;
+}
+.user-new .warn img, .user-edit .warn img {
+  float: left;
+  margin: 0 10px 10px 0;
 }
 input[type="submit"]:hover,
 .button:hover a {
