@@ -42,7 +42,7 @@
         <% end %>
       </div>
       <div style="clear:both"></div>
-      <div class="post-body"><%= post.post_text %></div>
+      <div class="post-body"><%= auto_link post.post_text, :all, :target => '_blank' %></div>
     </div>
     <div class="post-comment-count-wrap">
       <div class="post-comment-count"><%= post.comments.length %></div>
