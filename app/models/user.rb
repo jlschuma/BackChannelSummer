@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :confirmationPassword, :email, :isAdmin, :password, :token
+  attr_accessible :password_confirmation, :email, :isAdmin, :password, :token
   before_save :create_token
   has_many :posts
 

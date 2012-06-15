@@ -3,13 +3,13 @@
 one:
   email: MyString
   password: MyString
-  confirmationPassword: MyString
+  password_confirmation: MyString
   token: MyString
   isAdmin: false
 
 two:
   email: MyString
   password: MyString
-  confirmationPassword: MyString
+  password_confirmation: MyString
   token: MyString
   isAdmin: false
