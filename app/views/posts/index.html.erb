@@ -3,17 +3,18 @@
 
 <h1>What are people talking about?</h1>
 
-<% if current_user %>
   <div class="right-actions">
     <ul class="actions">
+      <% if current_user %>
       <li class="button"><%= link_to 'Say Something!', new_post_path %></li>
+      <% end %>
+
     </ul>
-    <%= form_tag("/posts", :method => "get") do %>
+  <%= form_tag("/posts", :method => "get") do %>
         <%= text_field_tag :searchString %>
         <%= submit_tag '&nbsp;'.html_safe, :class => 'button', :id => 'search', :placeholder => 'Search' %>
     <% end %>
   </div>
-<% end %>
 
 <div class = "posts">
 
