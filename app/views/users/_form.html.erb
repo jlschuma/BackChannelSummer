@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+<%# passowrd input is now obscured, no need for warning
   <div class="warn">
     <img src="/images/warn.png"></img>
     Passwords are stored as cleartext!<br />Don't enter your private passwords here.<br />We can see them.
   </div>
+%>
 
   <div class="field">
     <%= f.label :email %>
@@ -22,11 +24,11 @@
   </div>
   <div class="field">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label 'Confirm password' %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.label :password_confirmation, "Confirm password" %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
     <%= f.label 'Administrator' %>
