@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, confirmation: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  validates_associated :posts
 
 
   def create_token

@@ -1,5 +1,6 @@
 
 class UsersController < ApplicationController
+  before_filter :admin_user, only: [:index, :edit, :update]
   # GET /users
   # GET /users.json
   def index
@@ -81,4 +82,18 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def admin_user
+    @user = self.current_user
+    # if current_user is null
+    if !@user
+      redirect_to signin_path, notice: "Please sign in."
+    else
+      # if current_user is not admin
+      if !@user.isAdmin?
+        redirect_to posts_path, notice: "Action not permitted"
+      end
+    end
+  end
+
 end
