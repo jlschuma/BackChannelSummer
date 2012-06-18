@@ -70,6 +70,13 @@ describe "UserControler" do
       page.should have_content("Administrator") 
     end   
 
-      end
+    # DESTROY
+    describe "delete a user" do   
+ 
+    end   
+
     end
+ 
+  end
+
 end
