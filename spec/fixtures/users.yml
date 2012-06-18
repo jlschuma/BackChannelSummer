@@ -14,8 +14,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-foo:
-  email: test.user1@example.com
-  password: testPassword1
-  password_confirmation: testPassword1
+user1:
+  email: user1@example.com
+  password: password1
+  password_confirmation: password1
   isAdmin: false
+
+admin:
+  email: admin@example.com
+  password: adminpw
+  password_confirmation: adminpw
+  isAdmin: true
