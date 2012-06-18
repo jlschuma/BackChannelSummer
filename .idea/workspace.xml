@@ -25,7 +25,7 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="879" selection-end="879" vertical-scroll-proportion="0.33126935">
+            <state line="47" column="9" selection-start="888" selection-end="888" vertical-scroll-proportion="0.33126935">
               <folding />
             </state>
           </provider>
@@ -89,7 +89,15 @@
         <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="-0.65384614">
-              <folding />
+              <folding>
+                <marker date="1339970820459" expanded="true" signature="90:322" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="202:311" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="593:659" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="681:757" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="779:901" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="923:999" placeholder="..." />
+                <marker date="1339970820459" expanded="true" signature="1089:1161" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,8 +144,8 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       </list>
     </option>
   </component>
@@ -927,13 +935,21 @@
     <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="-0.65384614">
-          <folding />
+          <folding>
+            <marker date="1339970820459" expanded="true" signature="90:322" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="202:311" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="593:659" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="681:757" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="779:901" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="923:999" placeholder="..." />
+            <marker date="1339970820459" expanded="true" signature="1089:1161" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="879" selection-end="879" vertical-scroll-proportion="0.33126935">
+        <state line="47" column="9" selection-start="888" selection-end="888" vertical-scroll-proportion="0.33126935">
           <folding />
         </state>
       </provider>

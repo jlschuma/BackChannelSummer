@@ -38,27 +38,37 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; 
+  display: inline;
 }
 
+.field_with_errors label {
+  color: #F86844;
+}
+
+.field_with_errors input[type="text"] {
+  color: #F86844;
+}
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #F86844;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #F4D4CD;
   h2 {
     text-align: left;
     font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    padding: 10px 5px 10px 15px;
+    font-size: 16px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+  }
+  ul {
+    margin: 10px 0;
   }
   ul li {
     font-size: 12px;
