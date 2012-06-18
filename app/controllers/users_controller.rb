@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @user.isAdmin = false
 
     respond_to do |format|
       format.html # new.html.erb
@@ -83,6 +84,7 @@ class UsersController < ApplicationController
     end
   end
 
+private
   def admin_user
     @user = self.current_user
     # if current_user is null

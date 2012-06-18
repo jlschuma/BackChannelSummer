@@ -31,12 +31,12 @@
     <%= f.password_field :password_confirmation %>
   </div>
 
-    <% if !current_user.nil? && current_user.isAdmin then %>
-        <div class="field">
+  <% if !current_user.nil? && current_user.isAdmin then %>
+  <div class="field">
     <%= f.label 'Administrator' %>
     <%= f.check_box :isAdmin %>
   </div>
-        <% end %>
+  <% end %>
   <%= f.submit 'Ok', :class => 'button', :style => 'float:left' %>
   <ul class="actions">
     <li class="button"><%= link_to 'Cancel', users_path %></li>
