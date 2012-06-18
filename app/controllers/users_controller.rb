@@ -84,6 +84,7 @@ class UsersController < ApplicationController
     end
   end
 
+private
   def admin_user
     @user = self.current_user
     # if current_user is null

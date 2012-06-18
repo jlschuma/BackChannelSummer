@@ -14,7 +14,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible  :email, :password, :password_confirmation, :isAdmin, :token
-  before_save :create_token
+  before_save :set_attributes
   has_many :posts
 
   before_save { |user| user.email = email.downcase }
@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
   validates_associated :posts
 
 
-  def create_token
+  def set_attributes
+    self.isAdmin = false if self.isAdmin.nil?
     self.token = SecureRandom.urlsafe_base64
-
   end
 
 end
