@@ -1,0 +1,69 @@
+BACK CHANNEL README
+
+-------------------------------------------------------------------------------
+TEAM
+-------------------------------------------------------------------------------
+"Kittens and Rainbows"
+
+Jessica Schumaker: jlschuma@ncsu.edu
+Aaron Averill: awaveril@ncsu.edu
+Rita Lui: wylui@ncsu.edu 
+
+-------------------------------------------------------------------------------
+LINKS
+-------------------------------------------------------------------------------
+Program source: https://github.com/jlschuma/BackChannelSummer
+Deployed demo: http://young-water-4826.herokuapp.com/ 
+Development: http://localhost:3000/
+
+-------------------------------------------------------------------------------
+TESTING
+-------------------------------------------------------------------------------
+Our tests used RSpec and Capybara.
+
+To set up test environment, at the project's root directory:
+
+$ bundle install
+$ rails generate rspec:install
+$ rake db:setup
+$ rake db:test:prepare
+
+To run all rspec tests in spec/ directory:
+
+$ bundle exec rspec spec
+
+To run rspec tests in spec/ subdirectory:
+
+$ bundle exec rspec spec/requests
+$ bundle exec rspec spec/models
+$ bundle exec rspec spec/controllers
+
+To run rspec tests in a specific file:
+
+$ bundle exec rspec spec/requests/user_pages_spec.rb
+
+-------------------------------------------------------------------------------
+DEVELOPMENT
+-------------------------------------------------------------------------------
+To start the app:
+
+$ git pull https://github.com/jlschuma/BackChannelSummer.git
+$ rake db:setup
+$ rails s
+
+-------------------------------------------------------------------------------
+TESTING
+-------------------------------------------------------------------------------
+The db:setup rake task will create a single admin user with the
+following credentials:
+
+email: admin@bc.com
+password: adminbc
+
+-------------------------------------------------------------------------------
+FEATURES FOR EXTRA CREDIT
+-------------------------------------------------------------------------------
+* Unauthorized access to admin pages are prohibited at controller - no hacking!
+* One admin user/password is seeded in database
+* A lot of time spent making the UI look nice and modern
+* Entering a web address in the post/comment will auto-link
