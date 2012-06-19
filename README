@@ -67,3 +67,5 @@ FEATURES FOR EXTRA CREDIT
 * One admin user/password is seeded in database
 * A lot of time spent making the UI look nice and modern
 * Entering a web address in the post/comment will auto-link
+* We used github issue tracker to collaborate - over 22 issues managed
+  > https://github.com/jlschuma/BackChannelSummer/issues
