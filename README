@@ -51,6 +51,12 @@ $ git pull https://github.com/jlschuma/BackChannelSummer.git
 $ rake db:setup
 $ rails s
 
+You may also start the app via the command:
+
+$ rails s -p port
+
+where port can be specified by the user per project requirements.
+
 -------------------------------------------------------------------------------
 TESTING
 -------------------------------------------------------------------------------
