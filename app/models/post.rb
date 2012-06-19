@@ -43,6 +43,11 @@ class Post < ActiveRecord::Base
     created_at.strftime "%B %d, %Y %l:%M %p"
   end
   
+  def author_name
+    return email if user
+    return "<deleted user>"
+  end
+  
   def <=>(other)
     other.comments.length <=> self.comments.length    #reversed order because we want highest count first
   end

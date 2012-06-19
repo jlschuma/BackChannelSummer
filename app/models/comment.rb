@@ -19,4 +19,9 @@ class Comment < ActiveRecord::Base
     return '+1'
   end
   
+  def author_name
+    return email if User.all.select {|user| user.email == email}.length > 0
+    return "<deleted user>"
+  end  
+  
 end
