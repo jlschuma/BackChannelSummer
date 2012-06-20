@@ -70,7 +70,7 @@
                 <li class="button"><%= link_to 'Delete', [post, comment], confirm: 'Are you sure?', method: :delete %></li>
               </ul>
             <% end %>
-            <div class="comment-body"><%= comment.comment_text %></div>
+            <div class="comment-body"><%= auto_link comment.comment_text, :all, :target => '_blank' %></div>
           </div>
           <div style="clear:both"></div>
           <div class="comment-stem"></div>
