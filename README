@@ -85,5 +85,5 @@ NOTES
   validations are in spec/models directory. Test cases for two integration test
   scenarios are in spec/requests directory. Functional tests for controllers
   are in spec/controllers directory. Instead of testing controllers at the 
-  HTTP request level, we opted to use RSpec/Capybara to test controllers from 
-  a user's perpective.
+  HTTP request level, we opted to follow RubyOnRails.org's integration approach
+  and use RSpec/Capybara to test controllers from a user's perpective.

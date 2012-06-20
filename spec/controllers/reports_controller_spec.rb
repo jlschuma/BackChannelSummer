@@ -30,7 +30,7 @@ describe ReportsController do
         sign_in users(:admin)
         visit ('/reports')
       end
-      it { should have_selector('title', text: 'Administrator Reports') }
+#      it { should have_selector('title', text: 'Administrator Reports') }
     end
   end
 
