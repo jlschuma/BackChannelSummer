@@ -1,42 +1,39 @@
 require 'spec_helper'
 
-describe "CommentsController" do
+describe CommentsController do
 
-  describe "for signed in user" do
-    # user sign in
-    fixtures  :users
-    visit ('/')    
-    click_button "Log In"
-    fill_in "Email",     with: users(:user1).email
-    fill_in "Password",  with: users(:user1).password
-    click_button "Sign in"
-    
-    describe "when posting empty comment" do
-
-    end
-
-    describe "when posting non-empty comment" do
-
-    end
-
-    click_button "Log out"
+  before(:each) do
+    @comment = Comment.new(email: 'testuser@test.com', body:'some text')
   end
 
-  describe "for admin user" do
-    fixtures  :users
-    visit ('/') 
-    # add this here so gem launchy can show the page on a browser window
-    save_and_open_page
-   
-    click_button "Log In"
-    fill_in "Email",     with: users(:admin).email
-    fill_in "Password",  with: users(:admin).password
-    click_button "Sign in"
+  subject { @comment }
 
-    describe "delete a comment" do
+  it { should respond_to(:body) }
+  it { should respond_to(:email) }
 
-    end
-  
+  describe "with valid email and non-empty body" do
+    it { should be_valid }
   end
+
+  describe "with valid email and empty body" do
+    before { @comment.body = "" }
+    it { should be_valid }
+  end
+
+  describe "without email and non-empty body" do
+    before { @comment.email = "" }
+    it { should be_valid }
+  end
+
+
+  describe "without email and empty body" do
+    before do
+      @comment.body = ""
+      @comment.email = ""
+    end
+    it {should be_valid}
+  end  
+
+
 
 end

@@ -14,14 +14,15 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+admin:
+  email: admin@bc.com
+  password: adminbc
+  password_confirmation: adminbc
+  isAdmin: true
+
 user1:
   email: user1@example.com
   password: password1
   password_confirmation: password1
   isAdmin: false
 
-admin:
-  email: admin@example.com
-  password: adminpw
-  password_confirmation: adminpw
-  isAdmin: true

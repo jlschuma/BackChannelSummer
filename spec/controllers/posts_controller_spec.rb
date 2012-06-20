@@ -1,51 +1,26 @@
 require 'spec_helper'
 
-describe "PostsController" do
+describe PostsController do
+  render_views
 
   describe "GET index" do
-    before { visit ('/') }
-    page.should have_selector('title', text: 'Posts')
-  end  
-
-  describe "for registered user" do
-    fixtures  :users
-    visit ('/') 
-    # add this here so gem launchy can show the page on a browser window
-    save_and_open_page
-   
-    click_button "Log In"
-    fill_in "Email",     with: users(:admin).email
-    fill_in "Password",  with: users(:admin).password
-    click_button "Sign in"    describe "when posting empty comment" do
-
-    
-    describe "create an empty post" do
-
+    before do
+      visit posts_path 
     end
-
-      describe "create a non-empty post" do
-
-    end
-
-    click_button "Log out"
-
+    it { should have_selector('title', text: 'Posts') }
   end
 
-  describe "for admin user" do
-    fixtures  :users
-    visit ('/') 
-    # add this here so gem launchy can show the page on a browser window
-    save_and_open_page
-   
-    click_button "Log In"
-    fill_in "Email",     with: users(:admin).email
-    fill_in "Password",  with: users(:admin).password
-    click_button "Sign in"
+  describe "POST" do
+    context "as registered user" do
+      fixtures :users
 
-    describe "delete a post" do
-
-    end
-  
+      before do
+        sign_in users(:user1)
+        visit new_post_path
+      end
+      it { should have_selector('title', title: 'Say something!') }
+      it { should have_button('Ok') }
+    end 
   end
 
 end
