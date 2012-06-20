@@ -40,7 +40,7 @@ $ bundle exec rspec spec/controllers
 
 To run rspec tests in a specific file:
 
-$ bundle exec rspec spec/requests/user_pages_spec.rb
+$ bundle exec rspec spec/models/user_spec.rb
 
 -------------------------------------------------------------------------------
 DEVELOPMENT
@@ -75,3 +75,15 @@ FEATURES FOR EXTRA CREDIT
 * Entering a web address in the post/comment will auto-link
 * We used github issue tracker to collaborate - over 22 issues managed
   > https://github.com/jlschuma/BackChannelSummer/issues
+
+-------------------------------------------------------------------------------
+NOTES
+-------------------------------------------------------------------------------
+* There is currently no check for when the last admin user deletes himself or 
+  changes himself to a non-admin user.
+* All test cases were written in RSpec/Capybara syntax. Test cases for model
+  validations are in spec/models directory. Test cases for two integration test
+  scenarios are in spec/requests directory. Functional tests for controllers
+  are in spec/controllers directory. Instead of testing controllers at the 
+  HTTP request level, we opted to use RSpec/Capybara to test controllers from 
+  a user's perpective.
